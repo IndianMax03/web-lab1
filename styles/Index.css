@@ -6,16 +6,23 @@
 
 /* Центрирование, отлипание столбцов от ячеек, выравнивание содержимого ячеек */
 td {
-    padding: 20px;
+    padding: 18.5px;
     vertical-align: middle;
     text-align: center;
 }
 
-/* Шапка сайта (столбец): высота, выравнивание содержимого по верху, центрирование текста */
+/* Шапка сайта (столбец): высота, выравнивание содержимого, центрирование текста */
 #cap {
     height: 20px;
-    vertical-align: top;
+    vertical-align: middle;
     text-align: center;
+}
+
+/* Шапка сайта (блок с текстом): настройка шрифта */
+#capBlock {
+    font-family: monospace;
+    font-size: 34px;
+    color: black;
 }
 
 /* Основные данные (столбец): высота, ширина */
@@ -84,6 +91,11 @@ td {
     box-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
 
+/* Настройка расстояния между радио кнопками радиуса (чтобы выровнять блок X и R по высоте) */
+.radioR {
+    margin: 18px;
+}
+
 /* Настройка поля ввода для координаты Y */
 #yText {
     margin-block-start: 10px;
@@ -103,4 +115,13 @@ td {
     text-decoration: overline;
     height: 6px;
     color: red;
+}
+
+#graphImg {
+    border: 3px solid #000000;
+}
+
+/* Настройка текста, описывающего график */
+#imgLabel {
+    font-size: 30px;
 }

@@ -12,11 +12,13 @@
 
 <body>
 <!-- Табличная вёрстка -->
-<table id="layout" border="2px">
+<table id="layout">
     <!-- Первая строка - заголовок -->
     <tr>
         <td colspan="2" id="cap">
-            <?php require "forms/Header.php" ?>
+            <div id="capBlock">
+                <?php require "forms/Header.php" ?>
+            </div>
         </td>
     </tr>
     <!-- Вторая строка - Данные для ввода, график и кнопка подтверждения -->
@@ -26,7 +28,7 @@
             <!-- Столбик выбором данных (X, Y, R) -->
             <td id="data">
                 <!-- Таблица: одна строка, три столбца (данные) -->
-                <table id="dataTable" border="2px">
+                <table id="dataTable">
                     <tr>
                         <!-- 1 столбик - координата X -->
                         <td>
@@ -118,9 +120,12 @@
                 <!-- Картинка графика -->
                 <article>
                     <figure id="areaImg">
-                        <img src="images/Area.png" alt="Изображение не найдено">
+                        <img id="graphImg" src="images/Area.png" alt="Изображение не найдено">
                         <figcaption>
-                            <b>График области</b><br><br>
+                            <b>
+                                <span id="imgLabel">График области</span>
+                            </b>
+                            <br><br>
                         </figcaption>
                     </figure>
                 </article>
