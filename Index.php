@@ -23,8 +23,8 @@
     </tr>
     <!-- Вторая строка - Данные для ввода, график и кнопка подтверждения -->
     <tr>
-        <!-- Форма для отправки GET запроса на сервер -->
-        <form id="mainForm" action="forms/Form.php" method="get">
+        <!-- Форма для отправки GET запроса на сервер (target показывает, как форма будет открываться) -->
+        <form id="mainForm" action="forms/Form.php" method="get" target="forms/Form.php" ">
             <!-- Столбик выбором данных (X, Y, R) -->
             <td id="data">
                 <!-- Таблица: одна строка, три столбца (данные) -->
@@ -88,7 +88,7 @@
                         <td>
                             <fieldset id="rFieldSet">
                                 <legend id="rLegend">
-                                    <b><h4>Выберите радиус R</h4></b>
+                                    <b>Выберите радиус R</b>
                                 </legend>
                                 <div class="radioR">
                                     <input id="r5" type="radio" name="radius" value="5" class="rBtn">
@@ -138,8 +138,8 @@
         </form>
     </tr>
 </table>
-
-    <script src="yopta.js"></script>
+<script src="js/ValidateY.js"></script>
+<script src="yopta.js"></script>
 </body>
 
 </html>
