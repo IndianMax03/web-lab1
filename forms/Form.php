@@ -45,12 +45,6 @@
             </table>
         </td>
     </tr>
-    <!-- Третья строка - кнопка возврата -->
-    <tr>
-        <td>
-            <button id="accButton">Вернуться</button>
-        </td>
-    </tr>
 </table>
 </body>
 

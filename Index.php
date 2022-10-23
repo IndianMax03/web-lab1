@@ -138,7 +138,7 @@
         </form>
     </tr>
 </table>
-<script src="js/ValidateY.js"></script>
+<script src="js/Validating.js"></script>
 <script src="yopta.js"></script>
 </body>
 
