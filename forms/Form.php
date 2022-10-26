@@ -1,29 +1,34 @@
 <?php
 include "../business_logic/Row.php";
-include "../business_logic/FileWorker.php";
-
 date_default_timezone_set("Europe/Moscow");
-
 $start_time = $_SERVER["REQUEST_TIME_FLOAT"];
-$x = $_GET["xCoordinate"];
-$y = $_GET["yCoordinate"];
-$r = $_GET["radius"];
 
-function funcXYR($x, $y, $r) {
-    if ($x >= 0) { //  right side
-        if ($y >= 0) { //  up
-            return $x <= $r/2 && $y <= $r;
-        } else { //  down
-            return false;
-        }
-    } else { //  left side
-        if ($y >= 0) { //  up
-            return $x**2 + $y**2 <= $r**2;
-        } else { //  down
-            return $y >= -$x - $r/2;
-        }
-    }
+if ($_SERVER["REQUEST_METHOD"] != "GET") {
+    require "BadMethod.php";
+    exit();
+} elseif (!isset($_GET["cleaning"]) && (empty($_GET["xCoordinate"]) || empty($_GET["yCoordinate"]) || empty($_GET["radius"]) || !Row::validateParams($_GET["xCoordinate"], $_GET["yCoordinate"], $_GET["radius"]))) {
+    require "BadRequest.php";
+    exit();
 }
+global $arrayTable;
+if (!isset($_GET["cleaning"])) {
+    $x = $_GET["xCoordinate"];
+    $y = $_GET["yCoordinate"];
+    $y = str_ireplace(",", ".", $y);
+    $r = $_GET["radius"];
+
+    $row = new Row($x, $y, $r);
+    $stop_time = microtime(true);
+    $scriptTime = round(($stop_time - $start_time) * 10 ** 6);
+    $row->setTime($scriptTime, $stop_time);
+
+    if (isset($_COOKIE["table"])) {
+        $arrayTable = json_decode($_COOKIE["table"], true);
+    }
+    $arrayTable[] = $row->getArray();
+}
+
+setcookie("table", json_encode($arrayTable));
 
 ?>
 <!DOCTYPE html>
@@ -63,38 +68,28 @@ function funcXYR($x, $y, $r) {
                     <td>Текущее время</td>
                 </tr>
                 <?php
-                $table = new FileWorker();
-                $data = $table -> getRows();
-                if (count($data) > 0) {
-                for ($i = 0; $i < count($data); $i++) {
-                    $row = $data[$i];
-                    ?>
-                    <tr>
-                        <td><?php echo $row -> getX() ?></td>
-                        <td><?php echo $row -> getY() ?></td>
-                        <td><?php echo $row -> getR() ?></td>
-                        <td><?php echo $row -> getHit() ? "Попал(-а)" : "Не попал(-а)" ?></td>
-                        <td><?php echo $row -> getScriptTime() . " мкс" ?></td>
-                        <td><?php echo $row -> getCurTime() . " МСК" ?></td>
-                    </tr>
-                <?php }
+                if (isset($arrayTable)) {
+                    foreach ($arrayTable as $row) { ?>
+                        <tr>
+                            <td><?php echo $row["x"] ?></td>
+                            <td><?php echo $row["y"] ?></td>
+                            <td><?php echo $row["r"] ?></td>
+                            <td><?php echo $row["hit"] ? "Попадание" : "Промах" ?></td>
+                            <td><?php echo $row["scriptTime"] . " мкс" ?></td>
+                            <td><?php echo date("H:i:s", $row["curTime"]) . " по МСК" ?></td>
+                        </tr>
+                        <?php
+                    }
                 }
-                $newRow = new Row($x, $y, $r, funcXYR($x, $y, $r));
-                $stop_time = microtime(true);
-                $scriptTime = round(($stop_time - $start_time) * 10**6);
-                $newRow -> setTime($scriptTime, $stop_time);
-                $table -> addRow($newRow);
-                $rows = $table -> getRows();
                 ?>
-                <tr>
-                    <td><?php echo $newRow -> getX() ?></td>
-                    <td><?php echo $newRow -> getY() ?></td>
-                    <td><?php echo $newRow -> getR() ?></td>
-                    <td><?php echo $newRow -> getHit() ? "Попал(-а)" : "Не попал(-а)" ?></td>
-                    <td><?php echo $newRow -> getScriptTime() . " мкс" ?></td>
-                    <td><?php echo $newRow -> getCurTime() . " МСК" ?></td>
-                </tr>
             </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form action="Form.php" method="get">
+                <input id="accButton" type="submit" name="cleaning" value="Очистить">
+            </form>
         </td>
     </tr>
 </table>

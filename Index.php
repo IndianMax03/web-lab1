@@ -24,7 +24,7 @@
     <!-- Вторая строка - Данные для ввода, график и кнопка подтверждения -->
     <tr>
         <!-- Форма для отправки GET запроса на сервер (target показывает, как форма будет открываться) -->
-        <form id="mainForm" action="forms/Form.php" method="get" target="forms/Form.php" ">
+        <form id="mainForm" action="forms/Form.php" method="get" target="forms/Form.php">
             <!-- Столбик выбором данных (X, Y, R) -->
             <td id="data">
                 <!-- Таблица: одна строка, три столбца (данные) -->
@@ -39,35 +39,43 @@
                                 <div class="radioX">
                                     <input id="x2" type="radio" name="xCoordinate" value="2" class="xBtn">
                                     <label for="x2">2</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x1.5" type="radio" name="xCoordinate" value="1.5" class="xBtn">
                                     <label for="x1.5">1.5</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x1" type="radio" name="xCoordinate" value="1" class="xBtn">
                                     <label for="x1">1</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x0.5" type="radio" name="xCoordinate" value="0.5" class="xBtn">
                                     <label for="x0.5">0.5</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x0" type="radio" name="xCoordinate" value="0" class="xBtn">
                                     <label for="x0">0</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x-0.5" type="radio" name="xCoordinate" value="-0.5" class="xBtn">
                                     <label for="x-0.5">-0.5</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x-1" type="radio" name="xCoordinate" value="-1" class="xBtn">
                                     <label for="x-1">-1</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x-1.5" type="radio" name="xCoordinate" value="-1.5" class="xBtn">
                                     <label for="x-1.5">-1.5</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioX">
                                     <input id="x-2" type="radio" name="xCoordinate" value="-2" class="xBtn">
                                     <label for="x-2">-2</label>
@@ -93,23 +101,28 @@
                                 <div class="radioR">
                                     <input id="r5" type="radio" name="radius" value="5" class="rBtn">
                                     <label for="r5">5</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioR">
                                     <input id="r4" type="radio" name="radius" value="4" class="rBtn">
                                     <label for="r4">4</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioR">
                                     <input id="r3" type="radio" name="radius" value="3" class="rBtn">
                                     <label for="r3">3</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioR">
                                     <input id="r2" type="radio" name="radius" value="2" class="rBtn">
                                     <label for="r2">2</label>
-                                </div><br>
+                                </div>
+                                <br>
                                 <div class="radioR">
                                     <input id="r1" type="radio" name="radius" value="1" class="rBtn">
                                     <label for="r1">1</label>
-                                </div><br>
+                                </div>
+                                <br>
                             </fieldset>
                         </td>
                     </tr>
