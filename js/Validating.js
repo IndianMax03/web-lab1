@@ -7,7 +7,7 @@ let ans;
 
 function revalidateAns() {
     ans = validateY();
-    qS("#yNameError").textContent=ans;
+    qS("#yNameError").textContent = ans;
 }
 
 el("mainForm").addEventListener("submit", (e) => {
@@ -17,28 +17,32 @@ el("mainForm").addEventListener("submit", (e) => {
     let answer = (yAns + xAns + rAns !== "" ? "Ошибка отправки: " : "") +
         (yAns === "" ? yAns : yAns + "; ") +
         (xAns === "" ? xAns : xAns + "; ") +
-        (rAns === "" ? rAns: rAns + "; ");
+        (rAns === "" ? rAns : rAns + "; ");
     qS("#sendingError").textContent = answer;
     if (answer.length > 0) {
-       e.preventDefault();
-   }
+        e.preventDefault();
+    }
 });
 
 function validateY() {
 
     let y = qS("#yText").value;
+    console.log(y);
 
-    if (/[\s*]/.test(y) || y === "") {
+    if (y.replace(/\s/g, "") === "" || y === "") {
         return "Y не может быть пустым";
     }
 
     y = y.trim();
 
-    if (! ( /^-?\d*[.,]?\d+$/.test(y) )) {
+    if (!(/^-?\d*[.,]?\d+$/.test(y))) {
         return "Y - десятичное число";
     }
     if (y < min || y > max) {
         return min + " <= Y <= " + max;
+    }
+    if (y.length > 10) {
+        return "Длина поля Y < 11"
     }
 
     return "";

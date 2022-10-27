@@ -4,7 +4,8 @@ class Row
 {
 
 
-    private float $x, $y;
+    private float $x;
+    private string $y;
     private int $r;
     private bool $hit;
     private int $scriptTime;
@@ -22,7 +23,7 @@ class Row
     public function __construct($x, $y, $r)
     {
         $this->x = $x;
-        $this->y = $y;
+        $this->y = $this->parseY($y);
         $this->r = $r;
         $this->hit = $this->funcXYR();
     }
@@ -30,7 +31,7 @@ class Row
     private function funcXYR(): bool
     {
         $x = $this->x;
-        $y = $this->y;
+        $y = (float)$this->y;
         $r = $this->r;
         if ($x >= 0) { //  right side
             if ($y >= 0) { //  up
@@ -44,6 +45,17 @@ class Row
             } else { //  down
                 return $y >= -$x - $r / 2;
             }
+        }
+    }
+
+    private function parseY($y): string
+    {
+        $y = rtrim(str_ireplace(",", ".", $y), "0");
+        $symbolsAfterDot = strlen(substr($y, strpos($y, "."), null)) - 1;
+        if (abs((float)$y - (int)$y) > 0) {
+            return number_format($y, $symbolsAfterDot, ".");
+        } else {
+            return (float)$y + 0;
         }
     }
 
@@ -65,28 +77,19 @@ class Row
         ];
     }
 
-    public static function getXLimitsAsString(): string
-    {
-        return implode("; ", self::$xLimits);
-    }
-
-    public static function getYLimits(): array
-    {
-        return self::$yLimits;
-    }
-
-    public static function getRLimitsAsString(): string
-    {
-        return implode("; ", self::$rLimits);
-    }
-
     public static function validateParams($x, $y, $r): bool
     {
         $xArr = self::$xLimits;
         $yArr = self::$yLimits;
         $rArr = self::$rLimits;
         $y = str_ireplace(",", ".", $y);
-        return in_array($x, $xArr) && is_numeric($y) && $y >= $yArr["min"] && $y <= $yArr["max"] && in_array($r, $rArr);
+
+        return in_array($x, $xArr) &&
+            is_numeric($y) &&
+            (float)$y >= $yArr["min"] &&
+            (float)$y <= $yArr["max"] &&
+            strlen($y) < 11 &&
+            in_array($r, $rArr);
     }
 
     public function getX(): float

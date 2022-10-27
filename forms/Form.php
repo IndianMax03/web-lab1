@@ -6,7 +6,7 @@ $start_time = $_SERVER["REQUEST_TIME_FLOAT"];
 if ($_SERVER["REQUEST_METHOD"] != "GET") {
     require "BadMethod.php";
     exit();
-} elseif (!isset($_GET["cleaning"]) && (empty($_GET["xCoordinate"]) || empty($_GET["yCoordinate"]) || empty($_GET["radius"]) || !Row::validateParams($_GET["xCoordinate"], $_GET["yCoordinate"], $_GET["radius"]))) {
+} elseif (!isset($_GET["cleaning"]) && (!isset($_GET["xCoordinate"]) || !isset($_GET["yCoordinate"]) || !isset($_GET["radius"]) || !Row::validateParams($_GET["xCoordinate"], $_GET["yCoordinate"], $_GET["radius"]))) {
     require "BadRequest.php";
     exit();
 }
