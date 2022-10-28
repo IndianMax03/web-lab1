@@ -22,7 +22,7 @@ class Row
 
     public function __construct($x, $y, $r)
     {
-        $this->x = $x;
+        $this->x = $this->parseX($x);
         $this->y = $this->parseY($y);
         $this->r = $r;
         $this->hit = $this->funcXYR();
@@ -46,6 +46,11 @@ class Row
                 return $y >= -$x - $r / 2;
             }
         }
+    }
+
+    private function parseX($x) : float
+    {
+        return (float)str_ireplace(",", ".", $x);
     }
 
     private function parseY($y): string
@@ -82,6 +87,7 @@ class Row
         $xArr = self::$xLimits;
         $yArr = self::$yLimits;
         $rArr = self::$rLimits;
+        $x = str_ireplace(",", ".", $x);
         $y = str_ireplace(",", ".", $y);
 
         return in_array($x, $xArr) &&

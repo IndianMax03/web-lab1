@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>BadMethod</title>
+    <title>Error405</title>
     <style>
         @import url('../styles/Index.css');
         @import url('../styles/BadRequest.css');
