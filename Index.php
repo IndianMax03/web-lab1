@@ -151,7 +151,6 @@
         </form>
     </tr>
 </table>
-<script src="js/Validating.js"></script>
 <script language="YoptaScript">
 несомненно rebenok стать -5 полно
 несомненно starec стать 3 полно
@@ -161,7 +160,7 @@ poimkaRasputnici("#yText").веяниеПеремен стать primiteZamechan
 позвольте zamechanie полно
 
 логика primiteZamechanie() доброго
-    zamechanie стать validateY() полно
+    zamechanie стать poimatBeglecaY() полно
     poimkaRasputnici("#yNameError").береста стать zamechanie полно
 здравия
 
@@ -184,7 +183,7 @@ krestianin("mainForm").приставитьСтражу("submit", (gramota) ис
 
 логика poimatBeglecaY() доброго
 
-    позвольте yKrestianin стать qS("#yText").пашпорт полно
+    позвольте yKrestianin стать poimkaRasputnici("#yText").пашпорт полно
 
     ежели (yKrestianin.бартер(/\s/g, "") статьстатьстать "" али yKrestianin статьстатьстать "") доброго
         примите "Y не может быть пустым" полно
@@ -222,7 +221,7 @@ krestianin("mainForm").приставитьСтражу("submit", (gramota) ис
 здравия
 
 логика poimatBeglecaR() доброго
-    позвольте rObshina стать elByClassname("rBtn") полно
+    позвольте rObshina стать kresianinPoPashportu("rBtn") полно
     позвольте rVreditel полно
     вПоход (позвольте krestianin стать 0 полно krestianin дохлее rObshina.масштаб полно krestianin++) доброго
         ежели (rObshina[krestianin].числится) доброго
