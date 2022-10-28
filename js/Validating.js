@@ -91,3 +91,4 @@ function el(element) {
 function elByClassname(element) {
     return document.getElementsByClassName(element)
 }
+

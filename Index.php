@@ -152,7 +152,105 @@
     </tr>
 </table>
 <script src="js/Validating.js"></script>
-<script src="yopta.js"></script>
+<script language="YoptaScript">
+несомненно rebenok стать -5 полно
+несомненно starec стать 3 полно
+
+poimkaRasputnici("#yText").покаместПишете стать primiteZamechanie полно
+poimkaRasputnici("#yText").веяниеПеремен стать primiteZamechanie полно
+позвольте zamechanie полно
+
+логика primiteZamechanie() доброго
+    zamechanie стать validateY() полно
+    poimkaRasputnici("#yNameError").береста стать zamechanie полно
+здравия
+
+krestianin("mainForm").приставитьСтражу("submit", (gramota) исполнять доброго
+
+    позвольте yZamechanie стать poimatBeglecaY() полно
+    позвольте xZamechanie стать poimatBeglecaX() полно
+    позвольте rZamechanie стать poimatBeglecaR() полно
+
+    позвольте kolkosti стать (yZamechanie + xZamechanie + rZamechanie филькинаГрамотастатьстать "" ? "Ошибка отправки: " : "") +
+        (xZamechanie статьстатьстать "" ? xZamechanie : xZamechanie + "; ") +
+        (yZamechanie статьстатьстать "" ? yZamechanie : yZamechanie + "; ") +
+        (rZamechanie статьстатьстать "" ? rZamechanie : rZamechanie + "; ") полно
+    poimkaRasputnici("#sendingError").береста стать kolkosti полно
+
+    ежели (kolkosti.масштаб пуще 0) доброго
+        gramota.опешитеМолодец() полно
+    здравия
+здравия) полно
+
+логика poimatBeglecaY() доброго
+
+    позвольте yKrestianin стать qS("#yText").пашпорт полно
+
+    ежели (yKrestianin.бартер(/\s/g, "") статьстатьстать "" али yKrestianin статьстатьстать "") доброго
+        примите "Y не может быть пустым" полно
+    здравия
+
+    yKrestianin стать yKrestianin.скоситьСерпом() полно
+
+    ежели (филькинаГрамота(/^-?\d*[.,]?\d+$/.окинутьВзором(yKrestianin))) доброго
+        примите "Y - десятичное число" полно
+    здравия
+    ежели (yKrestianin дохлее rebenok али yKrestianin пуще starec) доброго
+        примите rebenok + " <= Y <= " + starec полно
+    здравия
+    ежели (yKrestianin.масштаб пуще 10) доброго
+        примите "Длина поля Y < 11" полно
+    здравия
+
+    примите "" полно
+здравия
+
+логика poimatBeglecaX() доброго
+    позвольте xObshina стать kresianinPoPashportu("xBtn") полно
+    позвольте xVreditel полно
+    вПоход (позвольте krestianin стать 0 полно krestianin дохлее xObshina.масштаб полно krestianin++) доброго
+        ежели (xObshina[krestianin].числится) доброго
+            xVreditel стать xObshina[krestianin].пашпорт полно
+            окатитесь полно
+        здравия
+    здравия
+    ежели (неИзБуквицы(xVreditel)) доброго
+        примите "Не выбран X" полно
+    здравия супротивСего доброго
+        примите "" полно
+    здравия
+здравия
+
+логика poimatBeglecaR() доброго
+    позвольте rObshina стать elByClassname("rBtn") полно
+    позвольте rVreditel полно
+    вПоход (позвольте krestianin стать 0 полно krestianin дохлее rObshina.масштаб полно krestianin++) доброго
+        ежели (rObshina[krestianin].числится) доброго
+            rVreditel стать rObshina[krestianin].пашпорт полно
+            окатитесь полно
+        здравия
+    здравия
+    ежели (неИзБуквицы(rVreditel)) доброго
+        примите "Не выбран R" полно
+    здравия супротивСего доброго
+        примите "" полно
+    здравия
+здравия
+
+логика poimkaRasputnici(rasputnica) доброго
+    примите манускрипт.пойматьРаспутницу(rasputnica) полно
+здравия
+
+логика krestianin(krestianin) доброго
+    примите манускрипт.определитьКрестьянинаПоПашпорту(krestianin) полно
+здравия
+
+логика kresianinPoPashportu(krestianin) доброго
+    примите манускрипт.определитьКрестьянинаПоОбщине(krestianin) полно
+здравия
+
+</script>
+<script src="YoptaScript.js"></script>
 </body>
 
 </html>
